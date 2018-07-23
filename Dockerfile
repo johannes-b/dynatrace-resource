@@ -1,4 +1,4 @@
-FROM hiromasaono/curl
+FROM mvilliger/dynatrace-cli
 
 RUN apt-get update && \
 apt-get install -y jq
