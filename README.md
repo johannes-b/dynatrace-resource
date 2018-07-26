@@ -20,11 +20,11 @@ Source Configuration
 --------------------
 
 ```yaml
-- name: ufo
+- name: dynatrace
   type: dynatrace-resource
   source:
-    envid: sampleenvid
     apitoken: sampleapitoken
+    tenanthost: sampletenanthost
 ```
 
 Behavior
@@ -32,13 +32,18 @@ Behavior
 
 ### `check`: Nothing yet
 ### `in`: Nothing yet
-### `out`: Nothing yet
+
+### `out`: Pushes Deployment event to Dynatrace
+
+Pushes a deployment event to Dynatrace to the service specified in the monspec file
 
 #### Parameters
 
 Required:
 
-none
+- `monspecserviceenvironment`: Must match toplevel entry in monspec file plus environment name, i.e. "SampleJSonService/Staging"
+- `pipelinetaskname`: Label for the task/job being executed, i.e.: "TestStagingDeployment"
+- `deployversion`: a version number for the release, i.e.: "v1.4"
 
 A sample pipeline utilizing this resource can be found in the [PivotalDevOpsPipeline repo.](https://github.com/akirasoft/PivotalDevOpsTutorial)
 
