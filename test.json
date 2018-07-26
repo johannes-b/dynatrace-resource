@@ -1,0 +1,11 @@
+{
+    "params": {
+      "monspecserviceenvironment": "SampleJSonService/Staging",
+      "pipelinetaskname": "TestStagingDeployment",
+      "deployversion": "v1.4"
+    },
+    "source": {
+      "apitoken": "***REMOVED***",
+      "tenanthost": "***REMOVED***"
+    }
+}
