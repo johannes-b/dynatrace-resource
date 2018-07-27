@@ -18,37 +18,28 @@ cat > "$PAYLOAD" <&0
 
 
 # do stuff
-# original values from ufo resource
-#UFO_IP="$(jq -r '.source.UFO_IP' < "${PAYLOAD}")"
-#UFO_ROW="$(jq -r '.params.UFO_ROW' < "${PAYLOAD}")"
-#UFO_COLOR="$(jq -r '.params.UFO_COLOR' < "${PAYLOAD}")"
 
 #values from credentials file
 apitoken="$(jq -r '.source.apitoken' < "${PAYLOAD}")"
 tenanthost="$(jq -r '.source.tenanthost' < "${PAYLOAD}")"
 
 #values from pipeline
-#placeholder="$(jq -r '.params.placeholder' < "${PAYLOAD}")"
 monspecserviceenvironment="$(jq -r '.params.monspecserviceenvironment' < "${PAYLOAD}")"
 pipelinetaskname="$(jq -r '.params.pipelinetaskname' < "${PAYLOAD}")"
 deployversion="$(jq -r '.params.deployversion' < "${PAYLOAD}")"
 
 echo "configuring Dynatrace CLI with $apitoken and $tenanthost"
-#original:
-#python /opt/dtcli.py config apitoken ***REMOVED*** tenanthost ***REMOVED***
 
 #desired
-python /opt/dtcli.py config apitoken $apitoken tenanthost $tenanthost
+python /dtcli/dtcli.py config apitoken $apitoken tenanthost $tenanthost
 
 # path to ci assets:
 #./PivotalDevOpsTutorial/ci/
 
 echo "pushing Deployment version $deployversion to service $monspecserviceenvironment via task $pipelinetaskname"
-#original:
-#python /opt/dtcli.py monspec pushdeploy ./PivotalDevOpsTutorial/ci/smplmonspec.json ./PivotalDevOpsTutorial/ci/smplpipelineinfo.json SampleJSonService/Staging TestStagingDeployment v1.4
 
 #desired:
-python /opt/dtcli.py monspec pushdeploy ./PivotalDevOpsTutorial/ci/smplmonspec.json ./PivotalDevOpsTutorial/ci/smplpipelineinfo.json $monspecserviceenvironment $pipelinetaskname $deployversion
+python /dtcli/dtcli.py monspec pushdeploy ./PivotalDevOpsTutorial/ci/smplmonspec.json ./PivotalDevOpsTutorial/ci/smplpipelineinfo.json $monspecserviceenvironment $pipelinetaskname $deployversion
 
 timestamp="$(jq -n "{version:{timestamp:\"$(date +%s)\"}}")"
 echo "$timestamp $metadata $debug_info " | jq -s add  >&3

@@ -1,7 +1,7 @@
 FROM mvilliger/dynatrace-cli
 
-RUN apt-get update && \
-apt-get install -y jq
+RUN apk update && \
+apk add bash wget jq
 
 COPY check /opt/resource/check
 COPY in    /opt/resource/in
