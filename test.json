@@ -5,7 +5,7 @@
       "deployversion": "v1.4"
     },
     "source": {
-      "apitoken": "***REMOVED***",
-      "tenanthost": "***REMOVED***"
+      "apitoken": "sampleapitoken",
+      "tenanthost": "sampletenanthost"
     }
 }
