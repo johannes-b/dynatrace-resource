@@ -13,10 +13,6 @@ PAYLOAD=$(mktemp /tmp/resource-in.XXXXXX)
 
 cat > "$PAYLOAD" <&0
 
-# desired dtconfig.json
-##{"tenanthost": "***REMOVED***", "apitoken": "***REMOVED***", "cacheupdate": -1}
-
-
 # do stuff
 
 #values from credentials file
