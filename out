@@ -33,7 +33,7 @@ python /dtcli/dtcli.py config apitoken $apitoken tenanthost $tenanthost
 # path to ci assets:
 #./PivotalDevOpsTutorial/ci/
 
-echo "pushing Deployment version $deployversion to service $monspecserviceenvironment via task $pipelinetaskname"
+echo "pushing Deployment version $deployversion to service $monspecserviceenvironment defined in $APP_REPO via task $pipelinetaskname"
 
 #desired:
 python /dtcli/dtcli.py monspec pushdeploy ./$APP_REPO/ci/smplmonspec.json ./$APP_REPO/ci/smplpipelineinfo.json $monspecserviceenvironment $pipelinetaskname $deployversion
