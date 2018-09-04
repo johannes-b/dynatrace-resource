@@ -27,6 +27,7 @@ deployversion="$(jq -r '.params.deployversion' < "${PAYLOAD}")"
 echo "configuring Dynatrace CLI with $apitoken and $tenanthost"
 
 #desired
+ls -lrt
 python /dtcli/dtcli.py config apitoken $apitoken tenanthost $tenanthost
 
 # path to ci assets:
