@@ -5,7 +5,7 @@
       "deployversion": "v1.4"
     },
     "source": {
-      "apitoken": "sampleapitoken",
-      "tenanthost": "sampletenanthost"
+      "apitoken": "sampletoken",
+      "tenanthost": "http://samplehost"
     }
 }
