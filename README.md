@@ -40,7 +40,7 @@ Pushes a deployment event to Dynatrace to the service specified in the monspec f
 #### Parameters
 
 Required:
-
+- `APP_REPO`: Must match name of resource containing monspec file
 - `monspecserviceenvironment`: Must match toplevel entry in monspec file plus environment name, i.e. "SampleJSonService/Staging"
 - `pipelinetaskname`: Label for the task/job being executed, i.e.: "TestStagingDeployment"
 - `deployversion`: a version number for the release, i.e.: "v1.4"
