@@ -27,7 +27,7 @@ APP_REPO="$(jq -r '.params.APP_REPO' < "${PAYLOAD}")"
 
 echo "configuring Dynatrace CLI with $apitoken and $tenanthost"
 
-python /dtcli/dtcli.py config apitoken $apitoken tenanthost $tenanthost
+python /dtcli/dtcli.py config apitoken $apitoken tenanthost $tenanthost debug 1
 
 echo "pushing Deployment version $deployversion to service $monspecserviceenvironment defined in $APP_REPO via task $pipelinetaskname"
 
