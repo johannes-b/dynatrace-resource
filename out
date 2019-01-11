@@ -13,8 +13,6 @@ PAYLOAD=$(mktemp /tmp/resource-in.XXXXXX)
 
 cat > "$PAYLOAD" <&0
 
-# do stuff
-
 #values from credentials file
 apitoken="$(jq -r '.source.apitoken' < "${PAYLOAD}")"
 tenanthost="$(jq -r '.source.tenanthost' < "${PAYLOAD}")"
